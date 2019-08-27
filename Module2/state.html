@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <script type="text/babel">
+
+
+
+
+        class StateDemo extends React.Component{
+
+            constructor(props){
+                super(props);
+                this.state={
+                    data:''
+                }
+                this.handleClick=this.handleClick.bind(this);
+                this.updateInput=this.updateInput.bind(this);
+            }
+
+            handleClick()
+            {
+                console.log("handle click");
+                this.setState({data:'abc'});
+            }
+            updateInput(){
+                console.log("update input");
+                this.setState({data:event.target.value});
+            }
+
+            render(){
+                return(
+                    <React.Fragment>
+                        react demo works
+                        <input onChange={this.updateInput}/>
+                        <button onClick={this.handleClick}>Click me</button>
+                        <h2>{this.state.data}</h2>
+                    </React.Fragment>
+                );
+                }
+            
+        }
+            
+        function App(props){
+            return (
+                <div id="App">
+                    <StateDemo/>
+              </div>
+            )
+        }   
+        
+        ReactDOM.render(<App/>,document.getElementById('root'));
+        </script>
+    </div>
+</body>
+
+</html>

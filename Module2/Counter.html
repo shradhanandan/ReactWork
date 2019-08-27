@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <script type="text/babel">
+
+
+
+
+        class Counter extends React.Component{
+
+            constructor(props){
+                super(props);
+                this.state={
+                    count:0
+                }
+                this.increment=this.increment.bind(this);
+            }
+
+            increment()
+            {
+                console.log("handle click");
+                this.setState({
+                    count:this.state.count +5
+                });
+            }
+
+            render(){
+                return(
+                    <React.Fragment>
+                     Counter :  <button onClick={this.increment}>Increment</button>
+                        <h2>{this.state.count}</h2>
+                    </React.Fragment>
+                );
+                }
+            
+        }
+            
+        function App(props){
+            return (
+                <div id="App">
+                    <Counter/>
+              </div>
+            )
+        }   
+        
+        ReactDOM.render(<App/>,document.getElementById('root'));
+        </script>
+    </div>
+</body>
+
+</html>
